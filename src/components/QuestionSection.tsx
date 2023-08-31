@@ -27,7 +27,7 @@ export const QuestionSection = ({ questionSection, pos, setScoreMatrix, scoreMat
         questionSection.questions.map((question, index) => {
           return (
             <div key={index} className="flex pr-2 p-2 even:bg-gray-200">
-              <p className="font-extralight flex-initial text-sm">{question.question}</p>
+              <p className="font-extralight flex-initial text-sm text-justify pr-2">{question.question}</p>
               <input className="flex-inital right-0 ml-auto accent-orange-500" type="checkbox" name="question" checked={scoreMatrix[pos][index]} onChange={() => handleOnChange(index)} />
             </div>
           )

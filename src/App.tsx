@@ -35,6 +35,13 @@ const sectionScoreInitial: Tuple7<Tuple5<boolean>> = [
   [false, false, false, false, false]
 ]
 
+const Title = () => (
+  <div className='text-center mx-auto'>
+    <h1 className='text-xl font-bold'>{pageData.pageTitle}</h1>
+    <p className='font-extralight text-base italic md:px-72 px-6'>{pageData.pageDescription}</p>
+  </div>
+)
+
 function App() {
   const [showResults, setShowResults] = useState<boolean>(false);
   const [scoreMatrix, setScoreMatrix] = useState<Tuple7<Tuple5<boolean>>>(sectionScoreInitial);
@@ -69,11 +76,8 @@ function App() {
   if (!showResults) {
     return (
       <>
-        <div className='text-center'>
-          <h1 className='text-xl font-bold'>{pageData.pageTitle}</h1>
-          <p className='font-extralight text-base italic px-72'>{pageData.pageDescription}</p>
-        </div>
-        <div className="w-1/2 mx-auto p-2">
+        <Title />
+        <div className="w-9/10 md:w-1/2 mx-auto p-2">
           <h1 className='text-lg font-bold text-center'>Questions</h1>
           <hr className='mt-2' />
           {
@@ -87,35 +91,36 @@ function App() {
 
   return (
     <>
-      <div className='text-center'>
-        <h1 className='text-xl font-bold'>{pageData.pageTitle}</h1>
-        <p className='font-extralight text-base italic px-72'>{pageData.pageDescription}</p>
-      </div>
+      <Title />
       <hr />
-      <div className="flex">
-        <div className="flex-initial w-1/3 max-h-[90vh] px-2 overflow-scroll">
+      <div className="md:flex">
+        <div className="hidden md:block md:flex-initial w-1/3 max-h-[90vh] px-2 overflow-scroll">
           <h1 className='text-lg font-bold text-center'>Questions</h1>
           <hr className='mt-2' />
           {
             questionsSection
           }
         </div>
-        <div className='flex-initial w-2/3 max-h-[90vh] screen p-4 py-0 overflow-scroll'>
+        <div className='flex-initial md:w-2/3 max-h-[90vh] screen p-4 py-0 overflow-scroll'>
           <h1 className='text-lg font-bold text-center'>Results</h1>
           <hr className='my-2' />
           <div>
             <ResultsTable questionsdata={questionsdata} sectionScores={calcSectionScore(scoreMatrix)} />
           </div>
-          <Radar className="mx-32" data={data} options={{
-            maintainAspectRatio: true,
-            scales: {
-              r: {
-                min: 0,
-                max: 5,
-                beginAtZero: true,
+          <div className='mx-auto'>
+            <Radar data={data} options={{
+              responsive: true,
+              maintainAspectRatio: true,
+              scales: {
+                r: {
+                  min: 0,
+                  max: 5,
+                  beginAtZero: true,
+                }
               }
-            }
-          }} />
+            }} />
+          </div>
+          <button type="button" className="bg-orange-500 hover:bg-orange-700 text-white py-2 px-4 rounded" onClick={() => setShowResults(false)}>Back</button>
         </div>
       </div>
     </>
