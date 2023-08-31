@@ -120,7 +120,7 @@ function App() {
               }
             }} />
           </div>
-          <button type="button" className="bg-orange-500 hover:bg-orange-700 text-white py-2 px-4 rounded" onClick={() => setShowResults(false)}>Back</button>
+          <button type="button" className="bg-orange-500 block md:hidden hover:bg-orange-700 text-white py-2 px-4 rounded" onClick={() => setShowResults(false)}>Back</button>
         </div>
       </div>
     </>
