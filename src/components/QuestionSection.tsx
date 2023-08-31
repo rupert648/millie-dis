@@ -16,8 +16,6 @@ export const QuestionSection = ({ questionSection, pos, setScoreMatrix, scoreMat
     sectionScoreCopy[pos][index] = !sectionScoreCopy[pos][index]
     setScoreMatrix(sectionScoreCopy)
   }
-  console.log(`${pos}`, scoreMatrix[pos])
-  console.log(`${pos}`, sectionScore)
 
   return (
     <div className="py-2">
