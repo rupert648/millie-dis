@@ -1,7 +1,7 @@
 import { PageDataType, QuestionSections } from "./question.types";
 
 export const pageData: PageDataType = {
-  pageTitle: 'Form for Ethical use of Artifical Intelligence in Heritage Projects',
+  pageTitle: 'Form for Ethical use of Artificial Intelligence in Heritage Projects',
   pageDescription: 'Please fill out the form below in response to the following ethical criteria. A ticked box indicates the procedure has been met. Results are found to the right of the form and will be updated as responses are adjusted.'
 }
 
